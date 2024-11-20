@@ -1,6 +1,6 @@
 {
   "name": "leafer-x-dot-matrix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "tuntun0609 <tun.nozomi@gmail.com>",
   "license": "MIT",
   "main": "dist/index.esm.js",
@@ -61,7 +61,7 @@
     "vitest": "^0.34.4"
   },
   "peerDependencies": {
-    "@leafer-ui/core": "^1.0.9",
-    "@leafer-ui/interface": "^1.0.9"
+    "@leafer-ui/core": ">=1.0.9",
+    "@leafer-ui/interface": ">=1.0.9"
   }
 }

@@ -3,7 +3,7 @@ import { ICanvasContext2D } from 'leafer-ui'
 
 declare module '@leafer-ui/core' {
   interface App {
-    dotMatrix: Leafer
+    dotMatrix?: Leafer
   }
 }
 

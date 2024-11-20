@@ -12,10 +12,10 @@ importers:
   package:
     dependencies:
       '@leafer-ui/core':
-        specifier: ^1.0.9
+        specifier: '>=1.0.9'
         version: 1.0.9
       '@leafer-ui/interface':
-        specifier: ^1.0.9
+        specifier: '>=1.0.9'
         version: 1.0.9
     devDependencies:
       '@rollup/plugin-commonjs':
@@ -103,7 +103,7 @@ importers:
         specifier: ^5.22.1
         version: 5.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       leafer-editor:
-        specifier: ^1.0.9
+        specifier: 1.0.9
         version: 1.0.9(@leafer-in/interface@1.0.9(@leafer-ui/interface@1.0.9)(@leafer/interface@1.0.9))(@leafer-ui/core@1.0.9)(@leafer-ui/draw@1.0.9)(@leafer-ui/interface@1.0.9)(@leafer/interface@1.0.9)
       leafer-x-dot-matrix:
         specifier: workspace:*
