@@ -25,6 +25,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development rollup -c -w",
     "build": "cross-env PLATFORM=all rollup -c",
+    "build:watch": "cross-env PLATFORM=all rollup -c -w",
     "test": "vitest"
   },
   "devDependencies": {
