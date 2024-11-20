@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { App as LeaferApp, Rect } from 'leafer-editor'
 import { DotMatrix } from 'leafer-x-dot-matrix'
+import { Button, ColorPicker } from 'antd'
+import { GithubOutlined } from '@ant-design/icons'
 
 import styles from './App.module.css'
 import './App.css'
-import { Button, ColorPicker } from 'antd'
-import { GithubOutlined } from '@ant-design/icons'
 
 const App = () => {
   const canvasContainerRef = useRef<HTMLDivElement>(null)

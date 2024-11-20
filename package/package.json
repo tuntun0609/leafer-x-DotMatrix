@@ -1,6 +1,6 @@
 {
   "name": "leafer-x-dot-matrix",
-  "version": "1.0.9",
+  "version": "1.0.0",
   "author": "tuntun0609 <tun.nozomi@gmail.com>",
   "license": "MIT",
   "main": "dist/index.esm.js",
@@ -9,6 +9,10 @@
     "require": "./dist/index.cjs",
     "types": "./types/index.d.ts"
   },
+  "keywords": [
+    "leafer",
+    "dot-matrix"
+  ],
   "types": "types/index.d.ts",
   "files": [
     "src",
@@ -26,7 +30,8 @@
     "start": "cross-env NODE_ENV=development rollup -c -w",
     "build": "cross-env PLATFORM=all rollup -c",
     "build:watch": "cross-env PLATFORM=all rollup -c -w",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublish": "pnpm build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",

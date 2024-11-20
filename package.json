@@ -9,9 +9,13 @@
     "playground:build": "pnpm package:build && pnpm --filter playground build",
     "package:dev": "pnpm  --parallel --filter leafer-x-dot-matrix start",
     "package:build": "pnpm --filter leafer-x-dot-matrix build",
-    "package:build:watch": "pnpm --filter leafer-x-dot-matrix build:watch"
+    "package:build:watch": "pnpm --filter leafer-x-dot-matrix build:watch",
+    "publish": "pnpm package:build && cd package && npm publish"
   },
   "keywords": [],
   "author": "tuntun0609 <tun.nozomi@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "directory": "package"
+  }
 }
