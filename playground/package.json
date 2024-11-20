@@ -11,6 +11,7 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
     "antd": "^5.22.1",
     "leafer-editor": "^1.0.9",
     "leafer-x-dot-matrix": "workspace:*",

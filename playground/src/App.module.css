@@ -4,6 +4,7 @@
 }
 
 .toolbar {
+	position: relative;
 	height: 48px;
 	border-bottom: 1px solid #ccc;
 	display: flex;
@@ -15,4 +16,11 @@
 .canvasContainer {
 	width: 100%;
 	height: calc(100vh - 48px);
+}
+
+.githubIcon {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
 }

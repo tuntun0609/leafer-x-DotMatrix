@@ -5,6 +5,7 @@ import { DotMatrix } from 'leafer-x-dot-matrix'
 import styles from './App.module.css'
 import './App.css'
 import { Button, ColorPicker } from 'antd'
+import { GithubOutlined } from '@ant-design/icons'
 
 const App = () => {
   const canvasContainerRef = useRef<HTMLDivElement>(null)
@@ -48,19 +49,35 @@ const App = () => {
   return (
     <div className={styles.container}>
       <div className={styles.toolbar}>
-        <Button onClick={() => {
-          setEnabled(!enabled)
-        }}>
+        <Button
+          onClick={() => {
+            setEnabled(!enabled)
+          }}
+        >
           {enabled ? '关闭' : '启用'}
         </Button>
-        <ColorPicker value={dotColor} onChangeComplete={color => {
-          const hexColor = color.toHexString()
-          setDotColor(hexColor)
-          if (dotMatrixRef.current) {
-            dotMatrixRef.current.dotColor = hexColor
-            dotMatrixRef.current.renderDotMatrix()
-          }
-        }} />
+        <ColorPicker
+          value={dotColor}
+          onChangeComplete={color => {
+            const hexColor = color.toHexString()
+            setDotColor(hexColor)
+            if (dotMatrixRef.current) {
+              dotMatrixRef.current.dotColor = hexColor
+              dotMatrixRef.current.renderDotMatrix()
+            }
+          }}
+        />
+        <div className={styles.githubIcon}>
+          <Button
+            style={{ padding: 0, width: 32, height: 32 }}
+            type="text"
+            onClick={() => {
+              window.open('https://github.com/tuntun0609/leafer-x-dot-matrix', '_blank')
+            }}
+          >
+            <GithubOutlined style={{ fontSize: 18 }} />
+          </Button>
+        </div>
       </div>
       <div className={styles.canvasContainer} ref={canvasContainerRef}></div>
     </div>
