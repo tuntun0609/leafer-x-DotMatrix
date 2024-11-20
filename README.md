@@ -2,7 +2,7 @@
 
 点阵背景插件，为 Leafer 应用提供可自定义的点阵背景。
 
-![demo](https://github.com/tuntun0609/leafer-x-dot-matrix/blob/master/images/demo.png)
+<img src="https://github.com/tuntun0609/leafer-x-dot-matrix/blob/master/images/demo.png?raw=true" alt="demo" style="zoom:33%;" />
 
 
 
