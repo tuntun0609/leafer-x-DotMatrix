@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm package:build:watch & pnpm playground:dev",
     "playground:dev": "pnpm --parallel --filter playground dev",
-    "playground:build": "package:build && pnpm --filter playground build",
+    "playground:build": "pnpm package:build && pnpm --filter playground build",
     "package:dev": "pnpm  --parallel --filter leafer-x-dot-matrix start",
     "package:build": "pnpm --filter leafer-x-dot-matrix build",
     "package:build:watch": "pnpm --filter leafer-x-dot-matrix build:watch"
