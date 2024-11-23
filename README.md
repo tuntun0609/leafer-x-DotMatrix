@@ -4,15 +4,11 @@
 
 <img src="https://github.com/tuntun0609/leafer-x-dot-matrix/blob/master/images/demo.png?raw=true" alt="demo" style="zoom:33%;" />
 
-
-
 ## 安装
 
 ```bash
 npm install leafer-x-dot-matrix
 ```
-
-
 
 ## 类型定义
 
@@ -24,8 +20,6 @@ interface IDotMatrixConfig {
   targetDotMatrixPixel?: number; // 期望点阵间距（像素）
 }
 ```
-
-
 
 ## 基础使用
 
@@ -44,8 +38,6 @@ const dotMatrix = new DotMatrix(app)
 dotMatrix.enableDotMatrix(true)
 ```
 
-
-
 ## API 文档
 
 ### 构造函数
@@ -59,8 +51,6 @@ constructor(app: App, config?: IDotMatrixConfig)
 - `app`: Leafer App 实例
 - `config`: 可选的配置项
 
-
-
 #### 配置项
 
 | 属性                   | 类型     | 默认值                 | 说明               |
@@ -69,8 +59,6 @@ constructor(app: App, config?: IDotMatrixConfig)
 | `dotColor`             | string   | '#D2D4D7'              | 点的颜色           |
 | `dotMatrixGapMap`      | number[] | [10, 25, 50, 100, 200] | 点阵间距的可选值   |
 | `targetDotMatrixPixel` | number   | 50                     | 期望的点阵显示间距 |
-
-
 
 ### 实例属性
 
@@ -82,8 +70,6 @@ dotMatrix.dotColor: string          // 点的颜色
 dotMatrix.dotMatrixGapMap: number[] // 点阵间距可选值
 dotMatrix.targetDotMatrixPixel: number // 目标点阵间距
 ```
-
-
 
 ### 实例方法
 
@@ -107,7 +93,13 @@ dotMatrix.enableDotMatrix(false)
 dotMatrix.renderDotMatrix()
 ```
 
+#### destroy()
 
+销毁点阵实例
+
+```typescript
+dotMatrix.destroy()
+```
 
 ## 使用示例
 
@@ -127,11 +119,10 @@ dotMatrix.dotColor = '#FF0000'
 dotMatrix.renderDotMatrix()
 ```
 
-
-
 ## 注意事项
 
 1. 插件会扩展 App 类型，添加 `dotMatrix: Leafer` 属性
 2. 必须传入有效的 Leafer App 实例
 3. 点阵默认是禁用的，需要调用 `enableDotMatrix(true)` 来启用
 4. 点阵会自动添加到 App 的 `tree` 层的下层，保证不会影响内容展示
+5. 必须在添加好其余层（比如 tree 层）之后初始化  `DotMatrix` 实例

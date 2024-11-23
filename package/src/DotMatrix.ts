@@ -1,8 +1,8 @@
-import { App, LayoutEvent, Leafer, ResizeEvent } from '@leafer-ui/core'
-import { ICanvasContext2D } from 'leafer-ui'
+import { LayoutEvent, Leafer, ResizeEvent } from '@leafer-ui/core'
+import { ICanvasContext2D, IApp } from '@leafer-ui/interface'
 
-declare module '@leafer-ui/core' {
-  interface App {
+declare module '@leafer-ui/interface' {
+  interface IApp {
     dotMatrix?: Leafer
   }
 }
@@ -18,7 +18,7 @@ interface IDotMatrixConfig {
 }
 
 export class DotMatrix {
-  private app: App
+  private app: IApp
   private dotMatrixLeafer: Leafer
 
   public enable = true
@@ -27,7 +27,7 @@ export class DotMatrix {
   public dotMatrixGapMap: number[] = [10, 25, 50, 100, 200]
   public targetDotMatrixPixel = 50
 
-  constructor(app: App, config?: IDotMatrixConfig) {
+  constructor(app: IApp, config?: IDotMatrixConfig) {
     if (!app.isApp) {
       throw new Error('target must be an App')
     }
@@ -46,8 +46,13 @@ export class DotMatrix {
 
     app.dotMatrix = this.dotMatrixLeafer
 
-    // 添加到 tree 之前
-    app.addBefore(this.dotMatrixLeafer, this.app.tree)
+    // 如果没有 tree 层，就添加到最底层
+    if (!this.app.tree) {
+      this.app.add(this.dotMatrixLeafer, 0)
+    } else {
+      // 添加到 tree 之前
+      this.app.addBefore(this.dotMatrixLeafer, this.app.tree)
+    }
 
     // 兼容监听事件
     this.renderDotMatrix = this.renderDotMatrix.bind(this)
@@ -135,15 +140,20 @@ export class DotMatrix {
   public enableDotMatrix(enable: boolean) {
     this.enable = enable
     if (enable) {
-      this.app.tree.on(LayoutEvent.AFTER, this.renderDotMatrix)
-      this.app.tree.on(ResizeEvent.RESIZE, this.renderDotMatrix)
+      this.app.zoomLayer.on(LayoutEvent.AFTER, this.renderDotMatrix)
+      this.app.zoomLayer.on(ResizeEvent.RESIZE, this.renderDotMatrix)
       setTimeout(() => {
         this.renderDotMatrix()
       }, 100)
     } else {
-      this.app.tree.off(LayoutEvent.AFTER, this.renderDotMatrix)
-      this.app.tree.off(ResizeEvent.RESIZE, this.renderDotMatrix)
+      this.app.zoomLayer.off(LayoutEvent.AFTER, this.renderDotMatrix)
+      this.app.zoomLayer.off(ResizeEvent.RESIZE, this.renderDotMatrix)
       this.dotMatrixLeafer.forceRender()
     }
+  }
+
+  public destroy() {
+    this.app.dotMatrix = undefined
+    this.dotMatrixLeafer.destroy()
   }
 }

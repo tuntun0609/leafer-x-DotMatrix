@@ -1,4 +1,3 @@
-
 # leafer-x-dot-matrix
 
 点阵背景插件，为 Leafer 应用提供可自定义的点阵背景。
@@ -94,6 +93,14 @@ dotMatrix.enableDotMatrix(false)
 dotMatrix.renderDotMatrix()
 ```
 
+#### destroy()
+
+销毁点阵实例
+
+```typescript
+dotMatrix.destroy()
+```
+
 ## 使用示例
 
 ```typescript
@@ -118,3 +125,4 @@ dotMatrix.renderDotMatrix()
 2. 必须传入有效的 Leafer App 实例
 3. 点阵默认是禁用的，需要调用 `enableDotMatrix(true)` 来启用
 4. 点阵会自动添加到 App 的 `tree` 层的下层，保证不会影响内容展示
+5. 必须在添加好其余层（比如 tree 层）之后初始化  `DotMatrix` 实例
